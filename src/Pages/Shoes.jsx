@@ -7,7 +7,7 @@ import styles from "styled-components";
 
 const Shoes = () => {
   const dispatch = useDispatch();
-  const shoesLists = useSelector(state=>state.shoes);
+  const shoesLists = useSelector(state=> state.AppReducer.shoes);
   
 
   useEffect(()=>{
@@ -21,7 +21,7 @@ const Shoes = () => {
       </FilterWrapper>
       <ShoeListWrapper>
         {/* Map through the shoes list here using ShoeCard Component */}
-        {shoesLists.length>0 && shoesLists.map((d)=>{
+        {shoesLists.length > 0 && shoesLists.map((d)=>{
            return ( 
             <ShoeCardWrapper key={d.id} >
               <ShoeCard shoesData={d}/>
