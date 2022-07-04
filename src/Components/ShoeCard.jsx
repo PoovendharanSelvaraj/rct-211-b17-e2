@@ -1,18 +1,27 @@
 import React from "react";
+import styles from "styled-components";
 
-const ShoeCard = () => {
-  let shoeId = null;
+const ShoeCard = ({shoesData}) => {
+  let shoeId = shoesData.id;
   return (
-    <div data-cy={`shoe-card-wrapper-${shoeId}`}>
+    <div data-cy={`shoe-card-wrapper-${shoeId}`} >
+      <ShoeImageWrapper>
+        <img data-cy="shoe-card-image" src={shoesData.image} alt="" />
+      </ShoeImageWrapper>
       <div>
-        <img data-cy="shoe-card-image" src="" alt="" />
-      </div>
-      <div>
-        <div data-cy="shoe-name">name</div>
-        <div data-cy="shoe-category">category</div>
+        <div data-cy="shoe-name">{shoesData.name}</div>
+        <div data-cy="shoe-category">{shoesData.category}</div>
       </div>
     </div>
   );
 };
 
 export default ShoeCard;
+
+const ShoeImageWrapper = styles.div`
+    height:300px;
+    img{
+      width:100%;
+      height:100%;
+    }
+`;
